@@ -25,24 +25,24 @@ Na sua view adicione o helper find_at_table_field
 
 Para funcionar corretamente é necessário utilizar as tags <thead></thead> e <tbody> </tbody>. Exemplo:
 
-        <table id="table_id">
-          <thead>
-	    <tr>
-	      <th>Name</th>
-	      <th>Age</th>
-            </tr>
-	  </thead>
-          <tbody>
-	    <tr>
-	      <td>Homer Simpson</td>
-	      <td>36</td>
-	    </tr>
-	    <tr>
-	      <td>Bart Simpson</td>
-	      <td>14</td>
-	   </tr>
-	  </tbody>
-        </table>
+	<table id="table_id">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Homer Simpson</td>
+				<td>36</td>
+			</tr>
+			<tr>
+				<td>Bart Simpson</td>
+				<td>14</td>
+			</tr>
+		  </tbody>
+	  </table>
 
 ### Algumas opções:
 
