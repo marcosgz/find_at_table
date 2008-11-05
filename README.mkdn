@@ -2,7 +2,7 @@
 
 ## O que é?
 
-É um filtro para tabelas( "<table> </table>") utilizando prototype.
+É um filtro para tabelas( tabelas em HTML e não Banco de Dados) utilizando prototype.
 
 ## Dependências
 
@@ -11,7 +11,8 @@
 ## Como utilizar?
 
 Primeiramente instale o plugin no seu projeto
-	      ruby script/plugin install git://github.com/mgzmaster/find_at_table.git 
+
+        ruby script/plugin install git://github.com/mgzmaster/find_at_table.git 
 
 ## Quem está trabalhando
 
