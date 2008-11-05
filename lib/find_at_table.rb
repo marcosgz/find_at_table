@@ -1,11 +1,14 @@
 
 module FindAtTableHelper
-  def find_at_table_field(name, table_id,dynamic = true, options ={})
+  def find_at_table_field(name, table_id, options ={})
     text_field = text_field_find_at_table({ "type" => "text", "name" => name, "id" => name }.update(options.stringify_keys))
+    dynamic = options[:dynamic] || true
+    frequency = options[:frequency] || 1
+
     if dynamic == true
       returning "" do |v|
         v << text_field
-        v << observer_ajax_field(name,1,table_id)
+        v << observer_ajax_field(name,frequency,table_id)
       end
     else
       returning "" do |v|
