@@ -23,7 +23,7 @@ Na sua view adicione o helper find_at_table_field
 
         <%= find_at_table_field("field_name", "table_id") %>
 
-Para funcionar corretamente é necessário utilizar as tags <thead></thead> e <tbody> </tbody>. Exemplo:
+Para funcionar corretamente é necessário utilizar as tags &lt;thead&gt; &lt;/thead&gt; e &lt;tbody&gt; &lt;/tbody&gt;. Exemplo:
 
 	<table id="table_id">
 		<thead>
@@ -54,7 +54,7 @@ Para funcionar corretamente é necessário utilizar as tags <thead></thead> e <t
 
 	<%= find_at_table_field("field_name", "table_id",{:frequency => 3}) %>
 
-## Quem está trabalhando
+## Quem está trabalhando no projeto?
 
 1. [Marcos G. Zimmermann][mz] (Autor e desenvolvedor)
 
