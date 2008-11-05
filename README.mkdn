@@ -1,0 +1,21 @@
+# FindAtTableField
+
+## O que é?
+
+É um filtro para tabelas( "<table> </table>") utilizando prototype.
+
+## Dependências
+
+1. Não possui dependências
+
+## Como utilizar?
+
+Primeiramente instale o plugin no seu projeto
+	      ruby script/plugin install git://github.com/mgzmaster/find_at_table.git 
+
+## Quem está trabalhando
+
+1. [Marcos G. Zimmermann][mz] (Autor e desenvolvedor)
+
+
+[mz]: http://marcosz.com.br
