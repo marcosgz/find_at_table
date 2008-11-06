@@ -1,16 +1,21 @@
-
+# -*- coding: utf-8 -*-
 module FindAtTableHelper
   def find_at_table_field(name, table_id, options ={})
-    text_field = text_field_find_at_table({ "type" => "text", "name" => name, "id" => name }.update(options.stringify_keys))
-    dynamic = options[:dynamic] || true
+    options ||={}
+    dynamic = options[:dynamic] == false ? false : true
     frequency = options[:frequency] || 1
 
+    #Remover para não aparecer como tag no text_field
+    options.delete(:frequency)
+    options.delete(:dynamic)
+
+    text_field = text_field_find_at_table({ "type" => "text", "name" => name, "id" => name }.update(options.stringify_keys))
     if dynamic == true
       returning "" do |v|
         v << text_field
         v << observer_ajax_field(name,frequency,table_id)
       end
-    else
+    elsif dynamic == false
       returning "" do |v|
         v << text_field
         v << press_key_table_field(name,table_id)
