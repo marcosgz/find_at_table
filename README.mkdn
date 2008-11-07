@@ -12,37 +12,37 @@
 
 Primeiramente instale o plugin no seu projeto
 
-	ruby script/plugin install git://github.com/mgzmaster/find_at_table.git 
+        ruby script/plugin install git://github.com/mgzmaster/find_at_table.git
 
 Adicione os javascripts na sua view:
 
-	<%= javascript_include_tag :defaults %>
-	<%= javascript_include_tag 'find_at_table' %>
+        <%= javascript_include_tag :defaults %>
+        <%= javascript_include_tag 'find_at_table' %>
 
 Adicione o c&oacute;digo abaixo na sua view:
 
-	 <%= find_at_table_field("field_name", "table_id") %>
+         <%= find_at_table_field("field_name", "table_id") %>
 
 Para funcionar corretamente é necessário utilizar as tags &lt;thead&gt; &lt;/thead&gt; e &lt;tbody&gt; &lt;/tbody&gt;. Exemplo:
 
-	<table id="table_id">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Age</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Homer Simpson</td>
-				<td>36</td>
-			</tr>
-			<tr>
-				<td>Bart Simpson</td>
-				<td>14</td>
-			</tr>
-		  </tbody>
-	  </table>
+        <table id="table_id">
+                <thead>
+                        <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                                <td>Homer Simpson</td>
+                                <td>36</td>
+                        </tr>
+                        <tr>
+                                <td>Bart Simpson</td>
+                                <td>14</td>
+                        </tr>
+                  </tbody>
+          </table>
 
 ### Algumas opções:
 
@@ -50,13 +50,33 @@ Para funcionar corretamente é necessário utilizar as tags &lt;thead&gt; &lt;/t
 
 Exemplo:
 
-	<%= find_at_table_field("field_name", "table_id",{:dynamic => false }) %>
+        <%= find_at_table_field("field_name", "table_id",{:dynamic => false }) %>
 
-* Alterar a frequencia do observer (Default => 1); 
+* Alterar a frequencia do observer (Default => 1);
 
 Exemplo:
 
-	<%= find_at_table_field("field_name", "table_id",{:frequency => 3}) %>
+        <%= find_at_table_field("field_name", "table_id",{:frequency => 3}) %>
+
+* Selecionar as colunas da tabela para o filtro (Defauld => "all" );
+
+Exemplo:
+
+Procurar na primeira coluna da tabela:
+
+        <%= find_at_table_field("field_name", "table_id",{:columns => 0}) %>
+
+Procurar na primeira e terceira coluna da tabela:
+
+        <%= find_at_table_field("field_name", "table_id",{:columns => [0,2]}) %>
+
+Procurar em todas as colunas da tabela:
+
+        <%= find_at_table_field("field_name", "table_id",{:columns => "all"}) %>
+
+Procurar entre primeira e a terceira coluna:
+
+        <%= find_at_table_field("field_name", "table_id",{:columns => (0..2)}) %>
 
 ## Quem está trabalhando no projeto?
 
