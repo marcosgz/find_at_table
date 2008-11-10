@@ -4,6 +4,8 @@
 
 É um filtro para tabelas( tabelas em HTML e não Banco de Dados) utilizando prototype.
 
+[Clique aqui para ver alguns exemplos][ex]
+
 ## Dependências
 
 1. Não possui dependências
@@ -84,3 +86,4 @@ Procurar entre primeira e a terceira coluna:
 
 
 [mz]: http://marcosz.com.br
+[ex]: http://marcosz.com.br/download/find_at_table/sample.html
