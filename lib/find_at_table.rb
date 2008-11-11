@@ -6,9 +6,7 @@ module FindAtTableHelper
     frequency = options[:frequency] || 1
     cols = format_columns(options[:columns])
     #Remover para não aparecer como tag no text_field
-    options.delete(:frequency)
-    options.delete(:dynamic)
-    options.delete(:columns)
+    options.clear
 
     text_field = tag(:input,{ :type => "text", :name => name, :id => name }.update(options))
     
@@ -30,7 +28,7 @@ module FindAtTableHelper
   private
   def format_columns(cols)
     # Caso o objeto seja do tipo Array
-    if cols.type == Array
+    if cols.class == Array
       #Remove caso o valor do array não estar dentro do padrão
       cols.delete_if{|x| x.type != Fixnum}
       if cols.size > 0
@@ -44,7 +42,7 @@ module FindAtTableHelper
       end
 
     # Caso o objeto seja do tipo Fixnum
-    elsif cols.type == Fixnum
+    elsif cols.class == Fixnum
       returning "" do |v|
         v << "["
         v << cols.to_s
@@ -52,7 +50,7 @@ module FindAtTableHelper
       end
 
     # Caso o objeto seja do tipo Range
-    elsif cols.type == Range
+    elsif cols.class == Range
       format_columns(cols.to_a)
     else
       return "'all'"
