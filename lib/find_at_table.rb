@@ -10,7 +10,7 @@ module FindAtTableHelper
     options.delete(:dynamic)
     options.delete(:columns)
 
-    text_field = text_field_find_at_table({ "type" => "text", "name" => name, "id" => name }.update(options.stringify_keys))
+    text_field = tag(:input,{ :type => "text", :name => name, :id => name }.update(options))
     if dynamic == true
       returning "" do |v|
         v << text_field
@@ -57,11 +57,6 @@ module FindAtTableHelper
   end
 
   private
-  def text_field_find_at_table(options = nil)
-    result = "<input #{tag_options_find_at_table(options) if options} />"
-  end
-
-  private
   def observer_ajax_field(field_id, frequency, table,cols)
     script = "new Form.Element.Observer('#{field_id}',"
     script << " #{frequency}, "
@@ -77,11 +72,4 @@ module FindAtTableHelper
     javascript_tag(script)
   end
 
-  private
-  def tag_options_find_at_table(options)
-    unless options.blank?
-      attrs = options.map { |key, value| %(#{key}="#{value}") }
-      " #{attrs.sort * ' '}" unless attrs.empty?
-    end
-  end
 end
