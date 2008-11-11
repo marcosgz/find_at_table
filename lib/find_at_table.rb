@@ -11,16 +11,19 @@ module FindAtTableHelper
     options.delete(:columns)
 
     text_field = tag(:input,{ :type => "text", :name => name, :id => name }.update(options))
+    
     if dynamic == true
-      returning "" do |v|
-        v << text_field
-        v << observer_ajax_field(name,frequency,table_id,cols)
-      end
+      return_with(text_field, observer_ajax_field(name,frequency,table_id,cols))
     elsif dynamic == false
-      returning "" do |v|
-        v << text_field
-        v << press_key_table_field(name,table_id,cols)
-      end
+      return_with(text_field, press_key_table_field(name,table_id,cols))
+    end
+  end
+  
+  private
+  def return_with(field, script)
+    returning "\n" do |v|
+      v << field
+      v << script
     end
   end
 
