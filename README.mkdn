@@ -83,7 +83,8 @@ Procurar entre primeira e a terceira coluna:
 ## Quem está trabalhando no projeto?
 
 1. [Marcos G. Zimmermann][mz] (Autor e desenvolvedor)
-
+2. [Rodrigo Pinto][rp] (Refactory man)
 
 [mz]: http://marcosz.com.br
+[rp]: http://github.com/diguix
 [ex]: http://marcosz.com.br/download/find_at_table/sample.html

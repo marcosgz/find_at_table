@@ -5,18 +5,21 @@ module FindAtTableHelper
     dynamic = options[:dynamic] == false ? false : true
     frequency = options[:frequency] || 1
     cols = format_columns(options[:columns])
-    #Remover para não aparecer como tag no text_field
-    options.clear
+    #Removendo apenas os options que não devem ir para o text_field..
+    options.delete(:frequency)
+    options.delete(:dynamic)
+    options.delete(:columns)
+
 
     text_field = tag(:input,{ :type => "text", :name => name, :id => name }.update(options))
-    
+
     if dynamic == true
       return_with(text_field, observer_ajax_field(name,frequency,table_id,cols))
     elsif dynamic == false
       return_with(text_field, press_key_table_field(name,table_id,cols))
     end
   end
-  
+
   private
   def return_with(field, script)
     returning "\n" do |v|
