@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  <title>Find At Table Test</title>
+  
+  <script src="javascripts/jsunittest.js" type="text/javascript"></script>
+  <script src="javascripts/jshoulda.js" type="text/javascript"></script>
+  <script src="../../public/javascripts/find_at_table.js" type="text/javascript"></script>
+  <script src="../../../../../public/javascripts/prototype.js" type="text/javascript"></script>  
+  <link rel="stylesheet" href="stylesheets/unittest.css" type="text/css" media="screen"/>
+</head>
+
+<body>
+  <h1>Find At Table Test</h1>
+  
+  <div id="testlog">
+    Your tests results are shown by default
+    in the element whose id is testlog.
+  </div>
+  
+<script type="text/javascript">
+context('getCellValue test',{
+    setup: function(){
+	var rows = $A($A($('table_1').tBodies).first().rows);
+	this.row = rows[0];
+	this.cols_all = getCellValue(this.row,"all");
+    }
+},
+	should('return with [0] cols',function(){
+	    this.assertEqual('Homer Simpson', getCellValue(this.row,[0]));
+	}),
+	should('return with [1] cols',function(){
+	    this.assertEqual('43', getCellValue(this.row,[1]));
+	}),
+	should('return with "all" cols value and valid row',function(){
+	    this.assertNotEqual(-1, this.cols_all.indexOf('Homer'));
+	}),
+	should('return with "all" cols value and invaild row',function(){
+	    this.assertEqual(-1, this.cols_all.indexOf('Test'));
+	})
+)();
+
+
+context('StringBuffe test', {
+    setup: function() {
+	this.str = new StringBuffer();
+	this.str.append('test');
+    }
+},
+	should('return str.toString()', function() {
+	    this.assertEqual('test', this.str.toString());
+	})
+)();
+
+
+
+  function scriptExists(file) {
+    var scripts = document.getElementsByTagName('script');
+    var script;
+    for (var i = 0; i < scripts.length; i += 1) {
+      script = scripts[i];
+      if (script.src && script.src.indexOf(file) == script.src.length - file.length) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // our testing code
+  context('A minimal test', {
+      // setup and teardown functions are optional
+    },
+    should('include a call to jsunittest.js', function() {
+	this.assertEqual(true, scriptExists('jsunittest.js'));
+    }),
+    should('include a call to jshoulda.js', function() {
+	this.assertEqual(true, scriptExists('jshoulda.js'));
+    }),
+    should('include a call to find_at_table.js', function(){
+	this.assertEqual(true, scriptExists('find_at_table.js'));
+    }),
+    should('include a call to prototype.js', function(){
+	this.assertEqual(true, scriptExists('prototype.js'));
+    })
+  )();
+
+</script>
+
+
+<div style="display:none">
+
+<input id="field_1" name="field_1" type="text">
+
+<table id="table_1">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+</thead>
+  <tbody><tr>
+    <td>Homer Simpson</td>
+    <td>43</td>
+  </tr>
+  <tr>
+    <td>Bart Simpson</td>
+    <td>15</td>
+  </tr>
+  <tr>
+    <td>Lisa Simpson</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>Maggie Simpson</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Marge Simpson</td>
+    <td>39</td>
+  </tr>
+  <tr>
+    <td>Abe Simpson</td>
+    <td>68</td>
+  </tr>
+</tbody>
+</table>
+  </div>
+</body>
+</html>
