@@ -14,7 +14,7 @@
 
 Primeiramente instale o plugin no seu projeto
 
-        ruby script/plugin install git://github.com/mgzmaster/find_at_table.git
+        ruby script/plugin install git://github.com/marcosgz/find_at_table.git
 
 Adicione os javascripts na sua view:
 
